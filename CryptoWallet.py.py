@@ -1,15 +1,15 @@
-# Define a class called CryptoWallet to represent a cryptocurrency wallet.
+# Class called CryptoWallet to represent a cryptocurrency wallet.
 class CryptoWallet:
-    # Initialize the wallet with a starting balance.
+    # Initializing the wallet with a starting balance.
     def __init__(self, balance):
         self.balance = balance
 
-    # Method to send cryptocurrency with a fee.
+    # Method to send cryptocurrency with a fee, here 1% is used as fee
     def send(self, amount):
         fee = amount * 0.01  # Calculate the transaction fee.
         total_amount = amount + fee  # Calculate the total transaction amount.
 
-        # Check if the total transaction amount is greater than the wallet balance.
+        # Checking if the total transaction amount is greater than the wallet balance.
         if total_amount > self.balance:
             print("Not enough balance.")
         else:
@@ -23,10 +23,10 @@ class CryptoWallet:
 
 # Main function to run the cryptocurrency wallet program.
 def main():
-    initial_balance = float(input("Starting balance: "))  # Get the initial balance from the user.
-    wallet = CryptoWallet(initial_balance)  # Create a wallet object with the initial balance.
+    initial_balance = float(input("Starting balance: "))  # Getting  the initial balance from the user.
+    wallet = CryptoWallet(initial_balance)  # Creating a wallet object with the initial balance.
 
-    # Display the main menu and handle user choices.
+    # Displaying the main menu and handle user choices.
     while True:
         print("\nCrypto Wallet Menu:")
         print("1. Send Crypto")
@@ -34,19 +34,19 @@ def main():
         print("3. Check Balance")
         print("4. Exit")
 
-        choice = input("Select an option: ")  # Get the user's menu choice.
+        choice = input("Select an option: ")  # Getting the user's menu choice.
 
-        # Handle the user's choice based on the selected option.
+        # Handling the user's choice based on the selected option.
         if choice == "1":
-            amount = float(input("Amount to send: "))  # Get the amount to send from the user.
+            amount = float(input("Amount to send: "))  # Getting the amount to send from the user.
             wallet.send(amount)  # Call the send method of the wallet.
         elif choice == "2":
-            amount = float(input("Amount to receive: "))  # Get the amount to receive from the user.
+            amount = float(input("Amount to receive: "))  # Getting the amount to receive from the user.
             wallet.receive(amount)  # Call the receive method of the wallet.
         elif choice == "3":
-            print(f"Balance: {wallet.balance:.2f}")  # Display the current wallet balance.
+            print(f"Balance: {wallet.balance:.2f}")  # Displaying the current wallet balance.
         elif choice == "4":
-            print("Exiting.")  # Exit the program loop.
+            print("Exiting.")  # Exiting the program loop.
             break
         else:
             print("Invalid option. Try again.")  # Handle invalid menu choices.
